@@ -24,19 +24,19 @@ class HelperService {
 
             def missingParameters = []
 
-            if(!data.userId) {
+            if(!data.siteId) {
                 missingParameters.add("siteId")
             }
 
-            if(!data.title) {
+            if(!data.userBackerId) {
                 missingParameters.add("userBackerId")
             }
 
-            if(!data.categoryId) {
+            if(!data.projectId) {
                 missingParameters.add("projectId")
             }
 
-            if(!data.videoUrl) {
+            if(!data.backedAmount) {
                 missingParameters.add("backedAmount")
             }
 

@@ -49,10 +49,33 @@ class ContributionController {
             return
         }
 
-        def projectJson = request.JSON
-        def project = contributionService.createContribution(projectJson)
+        def contributionJson = request.JSON
+        def contribution = contributionService.createContribution(contributionJson)
         response.status = 200
-        render project as JSON
+        render contribution as JSON
+
+    }
+
+    def getContributionsByProjectId (){
+
+      if(!params.projectId) {
+            response.status = 403 // Forbidden
+            render helperService.renderError("Parameter 'projectId' is mandatory.", "403")
+            return
+        }
+
+        def contributions = contributionService.getContributionsByProjectId(params.projectId as Integer)
+
+        if (contributions) {
+            response.status = 200  // Ok
+            render contributions as JSON
+            return
+        }
+        else{
+            response.status = 404 // NotFound
+            render helperService.renderError("Project with id "+params.userId+" not found.", "404")
+            return
+        }
 
     }
 }

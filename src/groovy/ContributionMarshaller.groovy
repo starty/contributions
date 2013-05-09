@@ -19,5 +19,6 @@ class ContributionMarshaller {
             contributionMap.backedAmount = contribution.backedAmount
             contributionMap.creationDate = contribution.creationDate
             contributionMap.lastUpdated = contribution.lastUpdated
+            return contributionMap
 }
 }

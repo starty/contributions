@@ -14,7 +14,7 @@ class ContributionService {
            contribution.setSiteId(contributionJson.siteId)
            contribution.setUserBackerId(contributionJson.userBackerId)
            contribution.setProjectId(contributionJson.projectId)
-           contribution.setBackedAmount(contriubtionJson.backedAmount)
+           contribution.setBackedAmount(contributionJson.backedAmount)
 
            contribution.setCreationDate(new Date () )
            contribution.setLastUpdated (new Date () )
@@ -26,6 +26,7 @@ class ContributionService {
 
        def getContributionsByProjectId (Integer projectId) {
 
+           return Contribution.findAllByProjectId(projectId)
 
         }
  }
